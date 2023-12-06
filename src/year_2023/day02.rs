@@ -10,7 +10,7 @@ fn one(lines: Lines) -> u32 {
         for part in splits[1].split("; ") {
             let mut counter: HashMap<&str, u32> = HashMap::default();
             for set in part.split(", ") {
-                let (number, color) = set.split_once(" ").unwrap();
+                let (number, color) = set.split_once(' ').unwrap();
                 let n = number.parse::<u32>().unwrap();
                 *counter.entry(color).or_insert(0) += n;
             }
@@ -38,7 +38,7 @@ fn two(lines: Lines) -> u32 {
         counter.insert("blue", 0);
         for part in splits[1].split("; ") {
             for set in part.split(", ") {
-                let (number, color) = set.split_once(" ").unwrap();
+                let (number, color) = set.split_once(' ').unwrap();
                 let n = number.parse::<u32>().unwrap();
                 if n > *counter.get(color).unwrap() {
                     *counter.get_mut(color).unwrap() = n;

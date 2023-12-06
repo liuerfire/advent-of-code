@@ -32,8 +32,8 @@ fn one(lines: Vec<Vec<char>>) -> u32 {
                 k += 1;
             }
             let mut adjacent = false;
-            for x in max(0, j.checked_sub(1).unwrap_or(0))..min(cols, k + 1) {
-                let ii = i.checked_sub(1).unwrap_or(0);
+            for x in max(0, j.saturating_sub(1))..min(cols, k + 1) {
+                let ii = i.saturating_sub(1);
                 if (ii > 0) && !lines[ii][x].is_ascii_digit() && lines[ii][x] != '.' {
                     adjacent = true
                 }
@@ -75,10 +75,11 @@ fn two(lines: Vec<Vec<char>>) -> u32 {
                 num = 10 * num + lines[i][k].to_digit(10).unwrap();
                 k += 1;
             }
-            for x in max(0, j.checked_sub(1).unwrap_or(0))..min(cols, k + 1) {
-                let ii = i.checked_sub(1);
-                if ii.is_some() && lines[ii.unwrap()][x] == '*' {
-                    adjacents[ii.unwrap() * cols + x].push(num);
+            for x in max(0, j.saturating_sub(1))..min(cols, k + 1) {
+                if let Some(ii) = i.checked_sub(1) {
+                    if lines[ii][x] == '*' {
+                        adjacents[ii * cols + x].push(num);
+                    }
                 }
                 if lines[i][x] == '*' {
                     adjacents[i * cols + x].push(num);
@@ -90,9 +91,9 @@ fn two(lines: Vec<Vec<char>>) -> u32 {
             j = k;
         }
     }
-    for i in 0..adjacents.len() {
-        if adjacents[i].len() == 2 {
-            s += adjacents[i][0] * adjacents[i][1]
+    for i in adjacents {
+        if i.len() == 2 {
+            s += i[0] * i[1]
         }
     }
     s
