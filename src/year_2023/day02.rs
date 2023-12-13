@@ -68,7 +68,7 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green";
     }
 
     #[test]
-    fn test_solve() {
+    fn test_answer() {
         println!(
             "{}",
             one(read_to_string("data/2023/day02.txt").unwrap().lines())

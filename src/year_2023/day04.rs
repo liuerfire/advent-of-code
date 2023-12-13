@@ -69,7 +69,7 @@ Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11
     }
 
     #[test]
-    fn test_solve() {
+    fn test_answer() {
         println!(
             "{}",
             one(read_to_string("data/2023/day04.txt").unwrap().lines())

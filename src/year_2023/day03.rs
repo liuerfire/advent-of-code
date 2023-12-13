@@ -124,7 +124,7 @@ mod tests {
     }
 
     #[test]
-    fn test_solve() {
+    fn test_answer() {
         println!(
             "{}",
             one(preprocess(

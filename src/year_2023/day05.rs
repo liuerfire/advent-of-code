@@ -145,7 +145,7 @@ humidity-to-location map:
     }
 
     #[test]
-    fn test_solve() {
+    fn test_answer() {
         println!(
             "{}",
             one(read_to_string("data/2023/day05.txt")

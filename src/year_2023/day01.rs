@@ -85,7 +85,7 @@ zoneight234
     }
 
     #[test]
-    fn test_solve() {
+    fn test_answer() {
         println!(
             "{}",
             solve1(read_to_string("data/2023/day01.txt").unwrap().lines())
