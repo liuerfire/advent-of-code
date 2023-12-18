@@ -50,8 +50,8 @@ fn one(lines: Lines) -> u32 {
 fn distance(
     a: (usize, usize),
     b: (usize, usize),
-    empty_rows: &Vec<usize>,
-    empty_cols: &Vec<usize>,
+    empty_rows: &[usize],
+    empty_cols: &[usize],
 ) -> u32 {
     let (r1, r2) = (min(a.0, b.0), max(a.0, b.0));
     let (c1, c2) = (min(a.1, b.1), max(a.1, b.1));
@@ -119,8 +119,8 @@ fn two(lines: Lines) -> u64 {
 fn distance2(
     a: (usize, usize),
     b: (usize, usize),
-    empty_rows: &Vec<usize>,
-    empty_cols: &Vec<usize>,
+    empty_rows: &[usize],
+    empty_cols: &[usize],
 ) -> u64 {
     let (r1, r2) = (min(a.0, b.0), max(a.0, b.0));
     let (c1, c2) = (min(a.1, b.1), max(a.1, b.1));
