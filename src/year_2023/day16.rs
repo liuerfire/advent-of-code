@@ -97,7 +97,7 @@ fn energize_tiles(
             continue;
         }
         visited.push((current.0, current.1, direction.clone()));
-        for p in walk(&coords, current, direction) {
+        for p in walk(coords, current, direction) {
             paths.push(((p.0, p.1), p.2.clone()));
         }
     }
